@@ -54,6 +54,33 @@
         </form>
       </div>
 
+      <div id="updateFood">
+        <form id="update-food">
+          <fieldset>
+            <h2>update food</h2>
+            <input required type="number" name="food[id]" id="food-id-update" placeholder="Food ID Here">
+            <input type="text" name="name" placeholder="Food Name"><br>
+            <input type="text" name="breakfast" placeholder="Breakfast"><br>
+            <input type="text" name="lunch" placeholder="lunch"><br>
+            <input type="submit" value="Update Food">
+          </fieldset>
+        </form>
+      </div>
+
+      <h2> Get One Row of Table </h2>
+            <form id ='getone-food'>
+              <input type='text' name='food[id]' />
+              <button type='submit' class='btn btn-default'> Get One Row Data of Table</button>
+            </form>
+
+      <form id="change-password">
+              <br>
+              <h3>Change Password</h3>
+              <input type="password" name="passwords[old]" placeholder="Old Password"><br>
+              <input type="password" name="passwords[new]" placeholder="New Password"><br>
+              <input type="submit" value="Change Password">
+      </form>
+
       <div id='feedbackOnAction'> <br> </div>
 
     </body>

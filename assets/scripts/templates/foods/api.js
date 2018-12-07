@@ -25,6 +25,18 @@ const signOut = function () {
     }
   })
 }
+
+const changePassword = function (data) {
+  return $.ajax({
+    url: config.apiUrl + '/change-password',
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
 const createFood = function (data) {
   return $.ajax({
     url: config.apiUrl + '/foods',
@@ -38,9 +50,32 @@ const createFood = function (data) {
   })
 }
 
+const updateFood = function (data) {
+  return $.ajax({
+    url: config.apiUrl + '/foods/' + data.food.id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      'food': data
+    }
+  })
+}
+
+const getOneFood = function (data) {
+  return $.ajax({
+    url: config.apiUrl + '/foods/' + data.food.id,
+    method: 'GET'
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   signOut,
-  createFood
+  changePassword,
+  createFood,
+  getOneFood,
+  updateFood
 }

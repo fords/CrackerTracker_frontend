@@ -1,9 +1,6 @@
 const store = require('../../store')
 
-// const onClick = function (obj) {
-//    alert('Button clicked, id ' + obj + ', text' + obj.innerHTML)
-//    console.log(obj)
-// }
+
 const signUpSuccess = function (data) {
   $('#feedbackOnAction').html(' ')
   $('#feedbackOnAction').text('Signed up successfully!!')
@@ -16,7 +13,6 @@ const signInSuccess = function (data) {
   $('#feedbackOnAction').html(' ')
   $('#feedbackOnAction').text('Signed in successfully!!')
   $('#sign-in')[0].reset()
-  // console.log(' sign up success')
 }
 
 const signOutSuccess = function () {
@@ -26,10 +22,14 @@ const signOutSuccess = function () {
   store.user = null
 }
 
+const changePasswordSuccess = function (data) {
+  $('#changedPassword').text('Password changed successfully!!')
+  $('#change-password')[0].reset()
+}
+
 const failure = function () {
   $('#feedbackOnAction').html(' ')
   $('#feedbackOnAction').text('Error!!!')
-  // console.log(' sign up success')
 }
 
 const createFoodSuccess = function (data) {
@@ -39,10 +39,31 @@ const createFoodSuccess = function (data) {
   // console.log(' sign up success')
 }
 
+const updateFoodSuccess = function (data) {
+  $('#feedbackOnAction').html(' ')
+  $('#feedbackOnAction').text('updated food  successfully!!')
+  $('#sign-up')[0].reset()
+}
+
+const getOneFoodSuccess = function (data) {
+  $('#feedbackOnAction').html(' ')
+  $('#feedbackOnAction').text('get one food  successfully!!')
+  const foodHTML = (`
+        <h4> ${data.food.name} </h4>
+        <p> ${data.food.breakfast} </p>
+        <p> ${data.food.lunch} </p>
+      `)
+  $('#feedbackOnAction').append(foodHTML)
+  $('#sign-up')[0].reset()
+}
+
 module.exports = {
   signUpSuccess,
   signInSuccess,
   signOutSuccess,
   createFoodSuccess,
+  changePasswordSuccess,
+  updateFoodSuccess,
+  getOneFoodSuccess,
   failure
 }

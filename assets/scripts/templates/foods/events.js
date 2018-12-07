@@ -25,6 +25,14 @@ const onSignOut = function (event) {
     .catch(ui.failure)
 }
 
+const onChangePassword = function (event) {
+  event.preventDefault()
+  const data = getFormFields(this)
+  api.changePassword(data)
+    .then(ui.changePasswordSuccess)
+    .catch(ui.passwordFailure)
+}
+
 const createFood = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
@@ -33,12 +41,31 @@ const createFood = function (event) {
     .catch(ui.failure)
 }
 
+const updateFood = function (event) {
+  event.preventDefault()
+  const data = getFormFields(this)
+  api.updateFood(data)
+    .then(ui.updateFoodSuccess)
+    .catch(ui.failure)
+}
+
+const getOneFood = function (event) {
+  event.preventDefault()
+  const data = getFormFields(this)
+  api.getOneFood(data)
+    .then(ui.getOneFoodSuccess)
+    .catch(ui.failure)
+}
+
 const addHandlers = () => {
   // $('#sign-up').on('submit', onSignUp)
   $('#sign-up').on('submit', onSignUp),
   $('#sign-in').on('submit', onSignIn),
   $('#sign-out').on('submit', onSignOut),
-  $('#create-food').on('submit',createFood)
+  $('#change-password').on('submit', onChangePassword),
+  $('#create-food').on('submit', createFood),
+  $('#update-food').on('submit', updateFood),
+  $('#getone-food').on('submit', getOneFood)
 }
 
 module.exports = {
