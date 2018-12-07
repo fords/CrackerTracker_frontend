@@ -66,7 +66,10 @@ const updateFood = function (data) {
 const getOneFood = function (data) {
   return $.ajax({
     url: config.apiUrl + '/foods/' + data.food.id,
-    method: 'GET'
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
   })
 }
 
