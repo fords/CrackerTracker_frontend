@@ -57,6 +57,14 @@ const getOneFood = function (event) {
     .catch(ui.failure)
 }
 
+const deleteOneFood = function (event) {
+  event.preventDefault()
+  const data = getFormFields(this)
+  api.deleteOneFood(data)
+    .then(ui.deleteOneFoodSuccess)
+    .catch(ui.failure)
+}
+
 const addHandlers = () => {
   // $('#sign-up').on('submit', onSignUp)
   $('#sign-up').on('submit', onSignUp),
@@ -65,7 +73,8 @@ const addHandlers = () => {
   $('#change-password').on('submit', onChangePassword),
   $('#create-food').on('submit', createFood),
   $('#update-food').on('submit', updateFood),
-  $('#getone-food').on('submit', getOneFood)
+  $('#getone-food').on('submit', getOneFood),
+  $('#deleteone-food').on('submit', deleteOneFood)
 }
 
 module.exports = {

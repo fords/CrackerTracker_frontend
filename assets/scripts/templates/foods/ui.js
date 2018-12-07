@@ -1,6 +1,5 @@
 const store = require('../../store')
 
-
 const signUpSuccess = function (data) {
   $('#feedbackOnAction').html(' ')
   $('#feedbackOnAction').text('Signed up successfully!!')
@@ -57,6 +56,12 @@ const getOneFoodSuccess = function (data) {
   $('#sign-up')[0].reset()
 }
 
+const deleteOneFoodSuccess = function (data) {
+  $('#feedbackOnAction').html(' ')
+  $('#feedbackOnAction').text('deleted one food  successfully!!')
+  $('#sign-up')[0].reset()
+}
+
 module.exports = {
   signUpSuccess,
   signInSuccess,
@@ -65,5 +70,6 @@ module.exports = {
   changePasswordSuccess,
   updateFoodSuccess,
   getOneFoodSuccess,
+  deleteOneFoodSuccess,
   failure
 }
