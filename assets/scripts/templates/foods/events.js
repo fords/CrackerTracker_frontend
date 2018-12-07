@@ -10,6 +10,21 @@ const onSignUp = function (event) {
     .catch(ui.failure)
 }
 
+const onSignIn = function (event) {
+  event.preventDefault()
+  const data = getFormFields(this)
+  api.signIn(data)
+    .then(ui.signInSuccess)
+    .catch(ui.failure)
+}
+
+const onSignOut = function (event) {
+  event.preventDefault()
+  api.signOut()
+    .then(ui.signOutSuccess)
+    .catch(ui.failure)
+}
+
 const createFood = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
@@ -21,7 +36,9 @@ const createFood = function (event) {
 const addHandlers = () => {
   // $('#sign-up').on('submit', onSignUp)
   $('#sign-up').on('submit', onSignUp),
-$('#create-food').on('submit',createFood)
+  $('#sign-in').on('submit', onSignIn),
+  $('#sign-out').on('submit', onSignOut),
+  $('#create-food').on('submit',createFood)
 }
 
 module.exports = {

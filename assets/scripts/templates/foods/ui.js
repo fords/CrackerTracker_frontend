@@ -1,4 +1,4 @@
-// const store = require('../../store')
+const store = require('../../store')
 
 // const onClick = function (obj) {
 //    alert('Button clicked, id ' + obj + ', text' + obj.innerHTML)
@@ -9,6 +9,21 @@ const signUpSuccess = function (data) {
   $('#feedbackOnAction').text('Signed up successfully!!')
   $('#sign-up')[0].reset()
   // console.log(' sign up success')
+}
+
+const signInSuccess = function (data) {
+  store.user = data.user
+  $('#feedbackOnAction').html(' ')
+  $('#feedbackOnAction').text('Signed in successfully!!')
+  $('#sign-in')[0].reset()
+  // console.log(' sign up success')
+}
+
+const signOutSuccess = function () {
+  $('#feedbackOnAction').html(' ')
+  $('#feedbackOnAction').text('Signed out successfully!!')
+  // $('.signInUp').css('display', 'block')
+  store.user = null
 }
 
 const failure = function () {
@@ -26,6 +41,8 @@ const createFoodSuccess = function (data) {
 
 module.exports = {
   signUpSuccess,
+  signInSuccess,
+  signOutSuccess,
   createFoodSuccess,
   failure
 }
