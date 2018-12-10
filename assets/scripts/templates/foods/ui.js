@@ -75,6 +75,11 @@ const getOneFoodSuccess = function (data) {
   $('#getone-food')[0].reset()
 }
 
+const getOneFoodFailure = function () {
+  $('#feedbackOnOneRow').html(' ')
+  $('#feedbackOnOneRow').text('Error!!!')
+}
+
 const getAllFoodSuccess = function (data) {
   $('#feedbackOnAction').html(' ')
   $('#feedbackOnAction').text('get all food  successfully!!')
@@ -100,6 +105,7 @@ module.exports = {
   changePasswordSuccess,
   updateFoodSuccess,
   getOneFoodSuccess,
+  getOneFoodFailure,
   getAllFoodSuccess,
   deleteOneFoodSuccess,
   failure

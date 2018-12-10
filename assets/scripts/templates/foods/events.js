@@ -54,7 +54,7 @@ const getOneFood = function (event) {
   const data = getFormFields(this)
   api.getOneFood(data)
     .then(ui.getOneFoodSuccess)
-    .catch(ui.failure)
+    .catch(ui.getOneFoodFailure)
 }
 const getAllFood = function (event) {
   event.preventDefault()
