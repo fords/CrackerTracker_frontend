@@ -73,6 +73,16 @@ const getOneFood = function (data) {
   })
 }
 
+const getAllFood = function (data) {
+  return $.ajax({
+    url: config.apiUrl + '/foods/',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 const deleteOneFood = function (data) {
   return $.ajax({
     url: config.apiUrl + '/foods/' + data.food.id,
@@ -93,6 +103,7 @@ module.exports = {
   changePassword,
   createFood,
   getOneFood,
+  getAllFood,
   deleteOneFood,
   updateFood
 }

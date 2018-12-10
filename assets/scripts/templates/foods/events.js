@@ -56,6 +56,13 @@ const getOneFood = function (event) {
     .then(ui.getOneFoodSuccess)
     .catch(ui.failure)
 }
+const getAllFood = function (event) {
+  event.preventDefault()
+  const data = getFormFields(this)
+  api.getAllFood(data)
+    .then(ui.getAllFoodSuccess)
+    .catch(ui.failure)
+}
 
 const deleteOneFood = function (event) {
   event.preventDefault()
@@ -74,6 +81,7 @@ const addHandlers = () => {
   $('#create-food').on('submit', createFood),
   $('#update-food').on('submit', updateFood),
   $('#getone-food').on('submit', getOneFood),
+  $('#getall-food').on('submit',getAllFood),
   $('#deleteone-food').on('submit', deleteOneFood)
 }
 

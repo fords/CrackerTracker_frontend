@@ -9,5 +9,12 @@ const events = require('./templates/foods/events.js')
 
 $(() => {
   // your JS code goes here
+  $('.deleteonefood').css('display', 'none')
+  $('.createFood').css('display', 'none')
+  $('.updateFood').css('display', 'none')
+  $('#change-password').css('display', 'none')
+  $('.getonefood').css('display', 'none')
+  $('#sign-out').css('display', 'none')
   events.addHandlers()
+  // $('.updateFood').css('display', 'none')
 })
