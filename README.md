@@ -13,6 +13,13 @@ I as an engineer always want to plan, keep track of projects and see the statist
 </ul>
 
 ## User Stories
+The user can sign in and sign out anytime
+The user has the ability to change password
+The user can create new items
+The user can update new items
+The user can see the item he wants to see
+The user can delete the item he wants to delete
+Only the user can have control of the data he created
 
 ## Wireframe
 ![Alt Wireframe 1](part1.png?raw=true)
