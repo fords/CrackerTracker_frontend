@@ -1,0 +1,51 @@
+{{#each foods as |food|}}
+  {{log food}}
+
+  <tr data-id="{{food.id}}"
+    data-name="{{food.name}}"
+    data-breakfast="{{food.breakfast}}"
+    data-lunch="{{food.lunch}}"
+    data-dinner="{{food.dinner}}"
+    data-calendar="{{food.calendar}}"
+    data-toggle="modal" data-target="#modifyfoodModal">
+    <td class="name-td">
+      {{#if food.name}}
+        {{food.name}}
+      {{else}}
+        —
+      {{/if}}
+    </td>
+    <td class="breakfast-td">
+      {{#if food.breakfast}}
+        {{food.breakfast}}
+      {{else}}
+        —
+      {{/if}}
+    </td>
+    <td class="lunch-td">
+      {{#if food.lunch}}
+        {{food.lunch}}
+      {{else}}
+        —
+      {{/if}}
+    </td>
+    <td class="time-dinner-td">
+      {{#if food.dinner}}
+        {{food.dinner}}
+      {{else}}
+        —
+      {{/if}}
+    </td>
+    <td class="notes-td">
+      {{#if food.calendar}}
+        {{food.calendar}}
+      {{else}}
+        —
+      {{/if}}
+    </td>
+    <td class="modify-food-btn-td">
+       <div class="modify-food-btn" id="modify-food-btn">Modify</div>
+     </td>
+  </tr>
+
+{{/each}}
