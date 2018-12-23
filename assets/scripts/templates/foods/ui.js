@@ -1,5 +1,5 @@
 const store = require('../../store')
-
+const showFoodsTemplate = require('../food-listing.handlebars')
 const signUpSuccess = function (data) {
   $('#feedbackOnAction').html(' ')
   $('#feedbackOnAction').text('Signed up successfully!!')
