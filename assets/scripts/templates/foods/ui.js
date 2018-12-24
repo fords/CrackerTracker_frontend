@@ -19,6 +19,7 @@ const signInSuccess = function (data) {
   $('.getonefood').css('display', 'block')
   $('#sign-out').css('display', 'block')
   $('.signInUp').css('display', 'none')
+  $('#nav-new-food').css('display', 'block')
 }
 
 const signOutSuccess = function () {
@@ -35,6 +36,7 @@ const signOutSuccess = function () {
   $('#sign-out').css('display', 'none')
   $('#feedbackOnAction').html(' ')
   $('#feedbackOnOneRow').html(' ')
+  $('#nav-new-food').css('display', 'none')
 }
 
 const changePasswordSuccess = function (data) {
@@ -65,12 +67,12 @@ const getOneFoodSuccess = function (data) {
   $('#feedbackOnOneRow').html(' ')
   $('#feedbackOnOneRow').text('get one food  successfully!!')
   const foodHTML = (`
-        <h4> Current user description is  ${data.food.name} </h4>
+        <h4> Calendar is  ${data.food.name} </h4>
         <p> Breakfast: ${data.food.breakfast} </p>
         <p> Lunch: ${data.food.lunch} </p>
         <p> Dinner: ${data.food.dinner} </p>
-        <p> Calendar: ${data.food.calendar} </p>
       `)
+      //<p> Calendar: ${data.food.calendar} </p>
   $('#feedbackOnOneRow').append(foodHTML)
   $('#getone-food')[0].reset()
 }

@@ -15,6 +15,7 @@ $(() => {
   $('#change-password').css('display', 'none')
   $('.getonefood').css('display', 'none')
   $('#sign-out').css('display', 'none')
+  $('#nav-new-food').css('display', 'none')
   events.addHandlers()
   // $('.updateFood').css('display', 'none')
 })
