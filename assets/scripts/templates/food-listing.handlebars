@@ -1,14 +1,13 @@
 {{#each foods as |food|}}
   {{log food}}
 
-  <tr data-id="{{food.id}}"
+  <tr  data-id="{{food.id}}"
     data-name="{{food.name}}"
     data-breakfast="{{food.breakfast}}"
     data-lunch="{{food.lunch}}"
     data-dinner="{{food.dinner}}"
-    data-calendar="{{food.calendar}}"
     data-toggle="modal" data-target="#modifyfoodModal">
-    <td class="name-td">
+    <td id="name-td" class="name-td">
       {{#if food.name}}
         {{food.name}}
       {{else}}
@@ -36,15 +35,51 @@
         —
       {{/if}}
     </td>
-    <td class="calendar-td">
-      {{#if food.calendar}}
-        {{food.calendar}}
-      {{else}}
-        —
-      {{/if}}
-    </td>
     <td class="modify-food-btn-td">
-       <div class="modify-food-btn" id="modify-food-btn">Modify</div>
+      <button type="button" class="update-food-btn update-btn btn btn-primary" data-toggle="modal"
+
+        data-target="#updateModal{{food.id}}">Update</button>
+
+        <div class="modal fade" id="updateModal{{food.id}}">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="updateModalLabel">Update Food</h5>
+                <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+              </div>
+              <div class="modal-body">
+                <!--update food form-->
+
+                <form class="update-food-form">
+                  <div class="form-group">
+                    <input class="form-control" type="text" name="name"
+                     placeholder="Calendar[mm/dd/yyyy]">
+                  </div>
+                  <div class="form-group">
+                    <input class="form-control" type="text" name="breakfast"
+                     placeholder="Breakfast">
+                  </div>
+                  <div class="form-group">
+                    <input class="form-control" type="text" name="lunch"
+                     placeholder="Lunch">
+                  </div>
+                  <div class="form-group">
+                    <input class="form-control" type="text" name="dinner"
+                     placeholder="Dinner">
+                  </div>
+                  <button type="submit" class="btn btn-warning">Update Food</button>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="close-modal btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+                <!-- update food form -->
+      <button type="submit" class="delete-food-btn delete-btn btn btn-danger">Delete</button>
+
      </td>
   </tr>
 
