@@ -47,6 +47,22 @@
         <button class="nav-button" id="nav-new-food" data-toggle="modal" data-target="#newFoodModal">Create Food</button>
       </div>
 
+      <div class="food-data">
+          <table style="margin: 30px;">
+            <thead>
+              <tr>
+                <th class="food-update">Calendar</th>
+                <th class="food-breakfast">Breakfast</th>
+                <th class="food-Lunch">Lunch</th>
+                <th class="food-dinner">Dinner</th>
+                <th class="food-modify">Update/Delete</th>
+              </tr>
+            </thead>
+            <tbody id="food-handlebars" class="food-handlebars">
+            </tbody>
+          </table>
+      </div>
+
       <!-- <div class="createFood">
         <form id="create-food">
           <fieldset>
@@ -65,7 +81,7 @@
       <div class="modal fade" id="newFoodModal"  role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog modal-md" role="document">
           <div class="modal-content">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>
             <h4 class="modal-title" id="modalTitleNewFood"> Create Food </h4>
             <form id="create-food" class="new-food-panel">
               <fieldset>
@@ -107,10 +123,10 @@
       <div id='feedbackOnOneRow'> <br> </div>
 
 
-      <!-- <h2> Get All Food </h2>
+      <h2> Get All Food </h2>
             <form id ='getall-food'>
               <button type='submit' class='btn btn-default'> Get All Food</button>
-            </form> -->
+            </form>
       <div class="deleteonefood">
       <h2 > Delete One Food </h2>
                   <form id ='deleteone-food'>
