@@ -1,1 +1,8 @@
 @import '~bootstrap/scss/bootstrap';
+
+th,
+td {
+  border: 10px solid orange;
+  margin: 10px;
+  color: lightgreen;
+}
