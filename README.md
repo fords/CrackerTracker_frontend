@@ -10,6 +10,7 @@ I as an engineer always want to plan, keep track of projects and see the statist
 <li> JavaScript</li>
 <li> Custom API </li>
 <li> jQuery event handlers </li>
+<li> Handlebars </li>
 </ul>
 
 ## User Stories
