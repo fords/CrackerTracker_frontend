@@ -90,9 +90,10 @@ const getAllFoodSuccess = function (data) {
     // console.log(data.foods[each].breakfast)
     // $('#feedbackOnAction').append(foodHTML)
   // }
+  const showTabsHtml = showFoodsTemplate({ foods: data.foods })
+  $('.food-handlebars').html(showTabsHtml)
   $('#sign-up')[0].reset()
 }
-
 const deleteOneFoodSuccess = function (data) {
   $('#feedbackOnAction').html(' ')
   $('#feedbackOnAction').text('deleted one food  successfully!!')
