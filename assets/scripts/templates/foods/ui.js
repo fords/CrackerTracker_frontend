@@ -60,7 +60,7 @@ const createFoodSuccess = function (data) {
 const updateFoodSuccess = function (data) {
   $('#feedbackOnAction').html(' ')
   $('#feedbackOnAction').text('updated food  successfully!!')
-  $('#update-food')[0].reset()
+  $('.update-food-form')[0].reset()
 }
 
 const getOneFoodSuccess = function (data) {
@@ -91,7 +91,7 @@ const getAllFoodSuccess = function (data) {
     // $('#feedbackOnAction').append(foodHTML)
   // }
   const showTabsHtml = showFoodsTemplate({ foods: data.foods })
-  $('.food-handlebars').html(showTabsHtml)
+  $('#food-handlebars').html(showTabsHtml)
   $('#sign-up')[0].reset()
 }
 const deleteOneFoodSuccess = function (data) {
