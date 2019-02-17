@@ -42,10 +42,12 @@ const createFood = function (event) {
 }
 
 
-const updateFood = function (event) {
+const updateFood = event => {
   event.preventDefault()
-  const data = getFormFields(this)
+  const data = getFormFields(event.target)
+  console.log(data)
   const foodId = $(event.target).closest('section').data('id')
+  // debugger
   api.updateFood(data, foodId)
     .then(ui.updateFoodSuccess)
     .catch(ui.failure)
@@ -83,7 +85,7 @@ const addHandlers = () => {
   $('#sign-out').on('submit', onSignOut),
   $('#change-password').on('submit', onChangePassword),
   $('#create-food').on('submit', createFood),
-  $('.food-handlebars').on('submit', updateFood),
+  $('.food-handlebars').on('submit',updateFood),
   $('.food-handlebars').on('click', '.delete-food-btn', deleteOneFood)
   $('#getone-food').on('submit', getOneFood),
   $('#getall-food').on('submit',getAllFood),
