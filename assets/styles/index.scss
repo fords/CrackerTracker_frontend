@@ -3,6 +3,12 @@
 th,
 td {
   border: 10px solid orange;
-  margin: 10px;
+  // margin: 10px;
   color: lightgreen;
+}
+
+table{
+    border: 1px solid black;
+    table-layout: fixed;
+    width: 800px;
 }

@@ -1,7 +1,7 @@
 {{#each foods as |food|}}
 
   {{log food}}
-  <div class="show-food">
+  <!-- <div class="show-food"> -->
 
     <section data-id="{{food.id}}">
 
@@ -9,46 +9,24 @@
 
 
       <div class="food-handlebars-data">
-        <tr  data-id="{{food.id}}"
-    data-name="{{food.name}}"
-    data-breakfast="{{food.breakfast}}"
-    data-lunch="{{food.lunch}}"
-    data-dinner="{{food.dinner}}"
-    data-toggle="modal" data-target="#modifyfoodModal">
-    <td id="name-td" class="name-td">
-      {{#if food.name}}
-        {{food.name}}
-      {{else}}
-        —
-      {{/if}}
-    </td>
-    <td class="breakfast-td">
-      {{#if food.breakfast}}
-        {{food.breakfast}}
-      {{else}}
-        —
-      {{/if}}
-    </td>
-    <td class="lunch-td">
-      {{#if food.lunch}}
-        {{food.lunch}}
-      {{else}}
-        —
-      {{/if}}
-    </td>
-    <td class="dinner-td">
-      {{#if food.dinner}}
-        {{food.dinner}}
-      {{else}}
-        —
-      {{/if}}
-    </td>
+      <table style="margin-left: 30px; border: 1px solid black;
+      table-layout: fixed;
+      width: 800px;">
+
+      <thead>
+      <tr>
+        <!-- <th id='feedbackMessage'></th> -->
+        <th  class="food-update">{{food.name}}</th>
+        <th  class="food-breakfast">{{food.breakfast}}</th>
+        <th  class="food-Lunch">{{food.lunch}}</th>
+        <th  class="food-dinner">{{food.dinner}}</th>
+
       <!-- </div> -->
 
       <!-- <div id="model-actions"> -->
-        <button type="button" class="update-food-btn update-btn btn btn-primary" data-toggle="modal"
+      <th >  <button type="button" class="update-food-btn update-btn btn btn-primary" data-toggle="modal"
 
-          data-target="#updateModal{{food.id}}">Update</button>
+          data-target="#updateModal{{food.id}}">Update</button> </th>
 
           <div class="modal fade" id="updateModal{{food.id}}">
             <div class="modal-dialog">
@@ -87,14 +65,16 @@
           </div>
 
 
-        <button type="submit" class="delete-food-btn delete-btn btn btn-danger">Delete</button>
-
+        <th> <button type="submit" class="delete-food-btn delete-btn btn btn-danger">Delete</button> </th>
+      </tr>
+      </thead>
+      </table>
+    </section>
       </div>
 
     </div>
     </section>
-    </tr>
-  </div>
-  <br>
+  <!-- </div> -->
+  <!-- <br> -->
 
 {{/each}}

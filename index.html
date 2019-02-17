@@ -47,8 +47,8 @@
         <button class="nav-button" id="nav-new-food" data-toggle="modal" data-target="#newFoodModal">Create Food</button>
       </div>
 
-      <div class="food-data">
-          <table style="margin: 30px;">
+      <div class="food-data" style="margin-left: 30px;">
+          <table>
             <thead>
 
               <tr>
@@ -57,19 +57,23 @@
                 <th class="food-breakfast">Breakfast</th>
                 <th class="food-Lunch">Lunch</th>
                 <th class="food-dinner">Dinner</th>
-                <th class="food-modify">Update/Delete</th>
+                <th class="food-modify">Update</th>
+                <th class="food-modify">Delete</th>
               </div>
               </tr>
-              <tr>
-              <div id="food-handlebars" class="food-handlebars"> </div>
-            </tr>
+
             </thead>
             <tbody >
+              <tr>
 
+              </tr>
             </tbody>
           </table>
+
+
       </div>
 
+      <div id="food-handlebars" class="food-handlebars"> </div>
       <!-- <div class="createFood">
         <form id="create-food">
           <fieldset>
@@ -119,13 +123,13 @@
       </div> -->
 
       <!--  -->
-      <div class="getonefood">
+      <!-- <div class="getonefood">
         <h2 > Get One Food </h2>
             <form id ='getone-food'>
               <input required type='text' name='food[id]' />
               <button type='submit' class='btn btn-default'> Get One Food</button>
             </form>
-      </div>
+      </div> -->
       <div id='feedbackOnOneRow'> <br> </div>
 
       <div class="getAllFood">
@@ -135,13 +139,13 @@
             </form>
       </div>
 
-      <div class="deleteonefood">
+      <!-- <div class="deleteonefood">
       <h2 > Delete One Food </h2>
                   <form id ='deleteone-food'>
                     <input type='text' name='food[id]' />
                     <button type='submit' class='btn btn-default'> Delete One Food</button>
                   </form>
-      </div>
+      </div> -->
 
       <form id="change-password">
               <br>
