@@ -16,6 +16,7 @@ const onSignIn = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
   $('#up-message').show().text('Signing in ....')
+  $('#up-message').fadeOut(14000)
   api.signIn(data)
     .then(ui.signInSuccess)
     .catch(ui.failure)
@@ -24,6 +25,7 @@ const onSignIn = function (event) {
 const onSignOut = function (event) {
   event.preventDefault()
   $('#out-message').show().text('Signing out ....')
+  $('#out-message').fadeOut(14000)
   api.signOut()
     .then(ui.signOutSuccess)
     .catch(ui.failure)
