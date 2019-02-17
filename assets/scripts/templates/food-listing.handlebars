@@ -1,6 +1,8 @@
 {{#each foods as |food|}}
   {{log food}}
 
+
+  <!-- debugger
   <tr  data-id="{{food.id}}"
     data-name="{{food.name}}"
     data-breakfast="{{food.breakfast}}"
@@ -34,7 +36,8 @@
       {{else}}
         —
       {{/if}}
-    </td>
+    </td> -->
+    <section data-id="{{food._id}}">
     <td class="modify-food-btn-td">
       <button type="button" class="update-food-btn update-btn btn btn-primary" data-toggle="modal"
 
@@ -81,6 +84,8 @@
       <button type="submit" class="delete-food-btn delete-btn btn btn-danger">Delete</button>
 
      </td>
-  </tr>
+     </section>
+  <!-- </tr> -->
+
 
 {{/each}}

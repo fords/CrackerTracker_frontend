@@ -41,10 +41,12 @@ const createFood = function (event) {
     .catch(ui.failure)
 }
 
+
 const updateFood = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
-  api.updateFood(data)
+  const foodId = $(event.target).closest('section').data('id')
+  api.updateFood(data, foodId)
     .then(ui.updateFoodSuccess)
     .catch(ui.failure)
 }
@@ -66,8 +68,10 @@ const getAllFood = function (event) {
 
 const deleteOneFood = function (event) {
   event.preventDefault()
-  const data = getFormFields(this)
-  api.deleteOneFood(data)
+  // const data = getFormFields(this)
+  const foodId = $(event.target).closest('section').data('id')
+  debugger
+  api.deleteOneFood(foodId)
     .then(ui.deleteOneFoodSuccess)
     .catch(ui.failure)
 }
@@ -79,7 +83,8 @@ const addHandlers = () => {
   $('#sign-out').on('submit', onSignOut),
   $('#change-password').on('submit', onChangePassword),
   $('#create-food').on('submit', createFood),
-  $('#update-food').on('submit', updateFood),
+  $('.food-handlebars').on('submit', updateFood),
+  $('.food-handlebars').on('click', '.delete-food-btn', deleteOneFood)
   $('#getone-food').on('submit', getOneFood),
   $('#getall-food').on('submit',getAllFood),
   $('#deleteone-food').on('submit', deleteOneFood)
