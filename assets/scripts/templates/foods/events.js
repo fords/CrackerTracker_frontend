@@ -2,7 +2,7 @@ const getFormFields = require('../../../../lib/get-form-fields')
 const api = require('./api.js')
 const ui = require('./ui.js')
 const showFoodsTemplate = require('../food-listing.handlebars')
-// const store = require('../../store.js')
+const store = require('../../store.js')
 const onSignUp = function (event) {
   event.preventDefault()
   $('#up-message').show().text('Signing up ....')
@@ -42,17 +42,18 @@ const onChangePassword = function (event) {
 const createFood = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
+  store.flag = false
   api.createFood(data)
     .then(ui.createFoodSuccess)
     .catch(ui.failure)
 }
-
 
 const updateFood = event => {
   event.preventDefault()
   const data = getFormFields(event.target)
   // console.log('here')
   // console.log(data)
+  store.flag = false
   const foodId = $(event.target).closest('section').data('id')
   // debugger
   api.updateFood(data, foodId)
@@ -70,6 +71,7 @@ const getOneFood = function (event) {
 const getAllFood = event => {
   event.preventDefault()
   const data = getFormFields(event.target)
+  store.flag = !store.flag
   api.getAllFood(data)
     .then(ui.getAllFoodSuccess)
     .catch(ui.failure)
@@ -77,14 +79,11 @@ const getAllFood = event => {
 
 const deleteOneFood = event => {
   event.preventDefault()
-  const data = getFormFields(event.target)
+  // const data = getFormFields(event.target)
   const foodId = $(event.target).closest('section').data('id')
-  // debugger
+  store.flag = false
   api.deleteOneFood(foodId)
     .then(ui.deleteOneFoodSuccess)
-    // .then(() => $('#food-handlebars').html(showFoodsTemplate({ foods: data.foods })))
-    // .then(api.getAllFood(data)
-    //   .then(ui.getAllFoodSuccess))
     .catch(ui.failure)
 }
 

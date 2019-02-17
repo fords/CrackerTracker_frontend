@@ -122,10 +122,17 @@ const getOneFoodFailure = function () {
 }
 
 const getAllFoodSuccess = function (data) {
-  $('#feedbackOnAction').html(' ')
-  $('#feedbackOnAction').show().text('Get all food  successfully!!')
-  const showTabsHtml = showFoodsTemplate({ foods: data.foods })
-  $('#food-handlebars').html(showTabsHtml)
+  if (store.flag) {
+    // document.getElementById('getall-food').form.submit.value = 'Hide'
+    $('#food-handlebars').show()
+    $('#feedbackOnAction').html(' ')
+    $('#feedbackOnAction').show().text('Get all food  successfully!!')
+    const showTabsHtml = showFoodsTemplate({ foods: data.foods })
+    $('#food-handlebars').html(showTabsHtml)
+  } else {
+    // document.getElementById('getall-food').form.submit.value = 'View'
+    $('#food-handlebars').hide()
+  }
   $('#feedbackOnAction').fadeOut(5000)
   $('#sign-up')[0].reset()
 }
