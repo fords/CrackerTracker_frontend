@@ -16,6 +16,7 @@ $(() => {
   $('.getonefood').css('display', 'none')
   $('#sign-out').css('display', 'none')
   $('#nav-new-food').css('display', 'none')
+  // $('#food-handlebars').on('submit', events.updateFood),
   events.addHandlers()
   // $('.updateFood').css('display', 'none')
 })

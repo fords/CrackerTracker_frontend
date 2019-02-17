@@ -1,51 +1,63 @@
 {{#each foods as |food|}}
+
   {{log food}}
+  <div class="show-food">
 
-  <tr data-id="{{food.id}}"
-    data-name="{{food.name}}"
-    data-breakfast="{{food.breakfast}}"
-    data-lunch="{{food.lunch}}"
-    data-dinner="{{food.dinner}}"
-    data-calendar="{{food.calendar}}"
-    data-toggle="modal" data-target="#modifyfoodModal">
-    <td class="name-td">
-      {{#if food.name}}
-        {{food.name}}
-      {{else}}
-        —
-      {{/if}}
-    </td>
-    <td class="breakfast-td">
-      {{#if food.breakfast}}
-        {{food.breakfast}}
-      {{else}}
-        —
-      {{/if}}
-    </td>
-    <td class="lunch-td">
-      {{#if food.lunch}}
-        {{food.lunch}}
-      {{else}}
-        —
-      {{/if}}
-    </td>
-    <td class="dinner-td">
-      {{#if food.dinner}}
-        {{food.dinner}}
-      {{else}}
-        —
-      {{/if}}
-    </td>
-    <td class="calendar-td">
-      {{#if food.calendar}}
-        {{food.calendar}}
-      {{else}}
-        —
-      {{/if}}
-    </td>
-    <td class="modify-food-btn-td">
-       <div class="modify-food-btn" id="modify-food-btn">Modify</div>
-     </td>
-  </tr>
+    <section data-id="{{food.id}}" class="food-data">
 
+
+      <table style="margin-left: 30px; border: 1px solid black;
+      table-layout: fixed;
+      width: 800px;">
+        <thead>
+          <tr>
+            <th>{{food.name}}</th>
+            <td>{{food.breakfast}}</th>
+            <th>{{food.lunch}}</th>
+            <th>{{food.dinner}}</th>
+
+
+            <th> <button type="button" class="update-food-btn update-btn btn btn-primary" data-toggle="modal" data-target="#updateModal{{food.id}}">Update</button>
+
+              <div class="modal fade" id="updateModal{{food.id}}">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-breakfast" id="updateModalLabel">Update food</h5>
+                      <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+
+                      <form class="update-food-form">
+                        <div class="update-message" > </div>
+                        <div class="form-group">
+                          <input class="modal-field" type="text" name="name" placeholder="food dinner">
+                        </div>
+                        <div class="form-group">
+                          <input class="modal-field" type="text" name="breakfast" placeholder="food breakfast">
+                        </div>
+                        <div class="form-group">
+                          <input class="modal-field" type="text" name="lunch" placeholder="food lunch">
+                        </div>
+                        <div class="form-group">
+                          <input class="modal-field" type="text" name="dinner" placeholder="food dinner">
+                        </div>
+                        <button type="submit" class="btn btn-warning">Update food</button>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="close-modal btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </th>
+
+
+            <th> <button type="submit" class="delete-food-btn delete-btn btn btn-danger">Delete</button> </th>
+          </tr>
+        </thead>
+    </section>
+    </table>
+  </div>
 {{/each}}

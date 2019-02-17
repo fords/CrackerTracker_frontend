@@ -1,6 +1,7 @@
 const getFormFields = require('../../../../lib/get-form-fields')
 const api = require('./api.js')
 const ui = require('./ui.js')
+const showFoodsTemplate = require('../food-listing.handlebars')
 // const store = require('../../store.js')
 const onSignUp = function (event) {
   event.preventDefault()
@@ -30,7 +31,7 @@ const onChangePassword = function (event) {
   const data = getFormFields(this)
   api.changePassword(data)
     .then(ui.changePasswordSuccess)
-    .catch(ui.passwordFailure)
+    .catch(ui.failure)
 }
 
 const createFood = function (event) {
@@ -41,10 +42,15 @@ const createFood = function (event) {
     .catch(ui.failure)
 }
 
-const updateFood = function (event) {
+
+const updateFood = event => {
   event.preventDefault()
-  const data = getFormFields(this)
-  api.updateFood(data)
+  const data = getFormFields(event.target)
+  // console.log('here')
+  // console.log(data)
+  const foodId = $(event.target).closest('section').data('id')
+  // debugger
+  api.updateFood(data, foodId)
     .then(ui.updateFoodSuccess)
     .catch(ui.failure)
 }
@@ -56,30 +62,39 @@ const getOneFood = function (event) {
     .then(ui.getOneFoodSuccess)
     .catch(ui.getOneFoodFailure)
 }
-const getAllFood = function (event) {
+const getAllFood = event => {
   event.preventDefault()
-  const data = getFormFields(this)
+  const data = getFormFields(event.target)
   api.getAllFood(data)
     .then(ui.getAllFoodSuccess)
     .catch(ui.failure)
 }
 
-const deleteOneFood = function (event) {
+const deleteOneFood = event => {
   event.preventDefault()
-  const data = getFormFields(this)
-  api.deleteOneFood(data)
+  const data = getFormFields(event.target)
+  const foodId = $(event.target).closest('section').data('id')
+  // debugger
+  api.deleteOneFood(foodId)
     .then(ui.deleteOneFoodSuccess)
+    // .then(() => $('#food-handlebars').html(showFoodsTemplate({ foods: data.foods })))
+    // .then(api.getAllFood(data)
+    //   .then(ui.getAllFoodSuccess))
     .catch(ui.failure)
 }
 
 const addHandlers = () => {
   // $('#sign-up').on('submit', onSignUp)
+  $('#options-button').hide()
+  $('#getall-food').hide()
+  $('.food-data').hide()
   $('#sign-up').on('submit', onSignUp),
   $('#sign-in').on('submit', onSignIn),
   $('#sign-out').on('submit', onSignOut),
   $('#change-password').on('submit', onChangePassword),
   $('#create-food').on('submit', createFood),
-  $('#update-food').on('submit', updateFood),
+  $('.food-handlebars').on('submit',updateFood),
+  $('.food-handlebars').on('click', '.delete-food-btn', deleteOneFood)
   $('#getone-food').on('submit', getOneFood),
   $('#getall-food').on('submit',getAllFood),
   $('#deleteone-food').on('submit', deleteOneFood)
