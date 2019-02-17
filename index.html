@@ -15,16 +15,10 @@
 
 
 <body>
-  <div class="nav-bar">
-    <button class="nav-button" id="nav-new-food" data-toggle="modal" data-target="#newFoodModal">Create Food</button>
-    <!-- <button class="nav-button" id="nav-examples">examples</button> -->
-    <form id='getall-food'>
-      <input type="submit" value="View">
-    </form>
+  <div style="margin: 0px;" class="alert alert-dark text-center" role="alert" id="ui-message"></div>
 
 
 
-  </div>
 
   <h1> Cracker Tracker </h1>
 
@@ -125,6 +119,13 @@
   <div style='position: fixed;' class='flex flex-vertical-center' id='feedbackOnAction'> </div>
 
   <div class="food-data" style="margin-left: 30px; margin-top: 30px;">
+
+    <form id='getall-food'>
+      <input type="submit" value="View">
+    </form>
+    <div class="nav-bar">
+      <button class="nav-button" id="nav-new-food" data-toggle="modal" data-target="#newFoodModal">Create Food</button>
+    </div>
     <table>
       <thead>
 
@@ -158,6 +159,7 @@
       <div class="modal-content">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>
         <h4 class="modal-title" id="modalTitleNewFood"> Create Food </h4>
+        <span id ='create-message'> </span>
         <form id="create-food" class="new-food-panel">
           <fieldset>
             <input type="text" class="modal-field" name="name" placeholder="Calendar[mm/dd/yyyy]">

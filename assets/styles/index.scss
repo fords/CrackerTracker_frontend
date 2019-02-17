@@ -1,19 +1,26 @@
 @import '~bootstrap/scss/bootstrap';
 
-th,
-td {
+td,
+th {
   border: 10px solid orange;
-  // margin: 10px;
-  color: 6E3B72;
+  color: #6E3B72;
   background-color: lightgreen;
 }
 
-table{
-    border: 1px solid black;
-    table-layout: fixed;
-    width: 800px;
+table {
+  border: 1px solid black;
+  table-layout: fixed;
+  width: 800px;
 }
 
-body{
+body {
   background-color: #C1B860;
+}
+
+#ui-message {
+  display: none;
+  left: 0;
+  right: 0;
+  position: fixed;
+  z-index: 100;
 }

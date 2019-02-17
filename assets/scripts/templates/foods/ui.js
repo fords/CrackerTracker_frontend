@@ -5,9 +5,7 @@ const signUpSuccess = function (data) {
   $('#up-message').removeClass()
   $('#up-message').addClass('success')
   $('#up-message').fadeOut(5000)
-  // console.log(' sign up success')
 }
-
 
 const signInSuccess = function (data) {
   store.user = data.user
@@ -77,37 +75,41 @@ const failure = function () {
 }
 
 const createFoodSuccess = function (data) {
-  $('#feedbackOnAction').html(' ')
-  $('#feedbackOnAction').show().text('Please click VIEW button to refresh information!!!!')
+  $('#create-message').html(' ')
+  $('#create-message').show().text('Food is created. Please click VIEW button to refresh information!!!!')
   $('#create-food')[0].reset()
-  $('#feedbackOnAction').fadeOut(5000)
+  $('#create-message').fadeOut(5000)
+  $('#ui-message').html(' ')
+  $('#ui-message').show().text('Food is created. Please click VIEW button to refresh information!!')
+  $('#ui-message').fadeOut(4000)
   // $('#feedbackOnAction').css('display', 'block')
-  // console.log(' sign up success')
 }
 
 const updateFoodSuccess = function (data) {
-  $('#feedbackOnAction').html(' ')
-  $('#feedbackOnAction').show().text('updated food  successfully!!')
+  // $('#feedbackOnAction').html(' ')
+  // $('#feedbackOnAction').show().text('Updated food  successfully!!')
   // const showTabsHtml = showFoodsTemplate({ foods: data.foods })
   // $('#food-handlebars').html(showTabsHtml)
   $('#feedbackOnAction').fadeOut(5000)
   $('.update-message').html(' ')
   $('.update-message').show().text('Please click VIEW button to refresh information!!')
   $('.update-message').fadeOut(5000)
+  $('#ui-message').html(' ')
+  $('#ui-message').show().text('Food is modified. Please click VIEW button to refresh information!!')
+  $('#ui-message').fadeOut(5000)
 
   // $('.update-food-form')[0].reset()
 }
 
 const getOneFoodSuccess = function (data) {
   $('#feedbackOnOneRow').html(' ')
-  $('#feedbackOnOneRow').show().text('get one food  successfully!!')
+  $('#feedbackOnOneRow').show().text('Get one food  successfully!!')
   const foodHTML = (`
         <h4> Calendar is  ${data.food.name} </h4>
         <p> Breakfast: ${data.food.breakfast} </p>
         <p> Lunch: ${data.food.lunch} </p>
         <p> Dinner: ${data.food.dinner} </p>
       `)
-      //<p> Calendar: ${data.food.calendar} </p>
   $('#feedbackOnOneRow').append(foodHTML)
   $('#feedbackOnAction').fadeOut(5000)
   // $('#getone-food')[0].reset()
@@ -121,21 +123,19 @@ const getOneFoodFailure = function () {
 
 const getAllFoodSuccess = function (data) {
   $('#feedbackOnAction').html(' ')
-  $('#feedbackOnAction').show().text('get all food  successfully!!')
-  // for (const each in data.foods) {
-    // console.log('in loop')
-    // console.log(data.foods[each].breakfast)
-    // $('#feedbackOnAction').append(foodHTML)
-  // }
+  $('#feedbackOnAction').show().text('Get all food  successfully!!')
   const showTabsHtml = showFoodsTemplate({ foods: data.foods })
   $('#food-handlebars').html(showTabsHtml)
   $('#feedbackOnAction').fadeOut(5000)
   $('#sign-up')[0].reset()
 }
 const deleteOneFoodSuccess = function (data) {
-  $('#feedbackOnAction').html(' ')
-  $('#feedbackOnAction').show().text('Please click VIEW button to refresh the updated info!!')
-  $('#feedbackOnAction').fadeOut(5000)
+  // $('#feedbackOnAction').html(' ')
+  // $('#feedbackOnAction').show().text('Please click VIEW button to refresh the updated info!!')
+  // $('#feedbackOnAction').fadeOut(5000)
+  $('#ui-message').html(' ')
+  $('#ui-message').show().text('Food is Deleted!!Please click VIEW button to refresh information!!')
+  $('#ui-message').fadeOut(4000)
   // $('#deleteone-food')[0].reset()
 }
 
