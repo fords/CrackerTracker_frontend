@@ -84,6 +84,9 @@ const deleteOneFood = event => {
 
 const addHandlers = () => {
   // $('#sign-up').on('submit', onSignUp)
+  $('#options-button').hide()
+  $('#getall-food').hide()
+  $('.food-data').hide()
   $('#sign-up').on('submit', onSignUp),
   $('#sign-in').on('submit', onSignIn),
   $('#sign-out').on('submit', onSignOut),
