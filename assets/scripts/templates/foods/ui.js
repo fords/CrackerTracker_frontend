@@ -17,10 +17,10 @@ const signInSuccess = function (data) {
   // $('.deleteonefood').css('display', 'block')
   $('.createFood').css('display', 'block')
   $('.updateFood').css('display', 'block')
-  // $('#change-password').css('display', 'block')
-  // $('.getonefood').css('display', 'block')
-  // $('#sign-out').css('display', 'block')
-  // $('.signInUp').css('display', 'none')
+  $('#change-password').css('display', 'block')
+  $('.getonefood').css('display', 'block')
+  $('#sign-out').css('display', 'block')
+  $('.signInUp').css('display', 'none')
   $('#nav-new-food').css('display', 'block')
   $('h1').hide()
   $('#getall-food').show()
@@ -34,7 +34,7 @@ const signInSuccess = function (data) {
 const signOutSuccess = function () {
   $('#feedbackOnAction').html(' ')
   $('#feedbackOnAction').show().text('Signed out successfully!!')
-  // $('.signInUp').css('display', 'block')
+  $('.signInUp').css('display', 'block')
   store.user = null
   $('.signInUp').css('display', 'block')
   $('.deleteonefood').css('display', 'none')
@@ -87,8 +87,8 @@ const createFoodSuccess = function (data) {
 const updateFoodSuccess = function (data) {
   $('#feedbackOnAction').html(' ')
   $('#feedbackOnAction').show().text('updated food  successfully!!')
-  const showTabsHtml = showFoodsTemplate({ foods: data.foods })
-  $('#food-handlebars').html(showTabsHtml)
+  // const showTabsHtml = showFoodsTemplate({ foods: data.foods })
+  // $('#food-handlebars').html(showTabsHtml)
   $('#feedbackOnAction').fadeOut(5000)
   // $('.update-food-form')[0].reset()
 }

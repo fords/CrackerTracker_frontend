@@ -1,80 +1,68 @@
 {{#each foods as |food|}}
 
-  <!-- {{log food}} -->
-  <!-- <div class="show-food"> -->
+  {{log food}}
+  <div class="show-food">
 
     <section data-id="{{food.id}}">
 
-
-
-
-      <div class="food-handlebars-data">
-      <table style="margin-left: 30px; border: 1px solid black;
+      <div class="food-data">
+        <table style="margin-left: 30px; border: 1px solid black;
       table-layout: fixed;
       width: 800px;">
+          <thead>
+            <tr>
+              <th>{{food.name}}</th>
+              <td>{{food.breakfast}}</th>
+              <th>{{food.lunch}}</th>
+              <th>{{food.dinner}}</th>
 
-      <thead>
-      <tr>
-        <!-- <th id='feedbackMessage'></th> -->
-        <th  class="food-update">{{food.name}}</th>
-        <th  class="food-breakfast">{{food.breakfast}}</th>
-        <th  class="food-Lunch">{{food.lunch}}</th>
-        <th  class="food-dinner">{{food.dinner}}</th>
 
-      <!-- </div> -->
+              <th> <button type="button" class="update-food-btn update-btn btn btn-primary" data-toggle="modal" data-target="#updateModal{{food.id}}">Update</button>
 
-      <!-- <div id="model-actions"> -->
-      <th >  <button type="button" class="update-food-btn update-btn btn btn-primary" data-toggle="modal"
+                <div class="modal fade" id="updateModal{{food.id}}">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-breakfast" id="updateModalLabel">Update food</h5>
+                        <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                      </div>
+                      <div class="modal-body">
 
-          data-target="#updateModal{{food.id}}">Update</button> </th>
-
-          <div class="modal fade" id="updateModal{{food.id}}">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-breakfast" id="updateModalLabel">Update food</h5>
-                  <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                        <form class="update-food-form">
+                          <div class="form-group">
+                            <input class="modal-field" type="text" name="name" placeholder="food dinner">
+                          </div>
+                          <div class="form-group">
+                            <input class="modal-field" type="text" name="breakfast" placeholder="food breakfast">
+                          </div>
+                          <div class="form-group">
+                            <input class="modal-field" type="text" name="lunch" placeholder="food lunch">
+                          </div>
+                          <div class="form-group">
+                            <input class="modal-field" type="text" name="dinner" placeholder="food dinner">
+                          </div>
+                          <button type="submit" class="btn btn-warning">Update food</button>
+                        </form>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="close-modal btn btn-secondary" data-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div class="modal-body">
-
-                  <form class="update-food-form">
-                    <div class="form-group">
-                      <input class="modal-field" type="text" name="name"
-                       placeholder="food dinner">
-                    </div>
-                    <div class="form-group">
-                      <input class="modal-field" type="text" name="breakfast"
-                       placeholder="food breakfast">
-                    </div>
-                    <div class="form-group">
-                      <input class="modal-field" type="text" name="lunch"
-                       placeholder="food lunch">
-                    </div>
-                    <div class="form-group">
-                      <input class="modal-field" type="text" name="dinner"
-                       placeholder="food dinner">
-                    </div>
-                    <button type="submit" class="btn btn-warning">Update food</button>
-                  </form>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="close-modal btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-              </div>
-            </div>
-          </div>
+              </th>
 
 
-        <th> <button type="submit" class="delete-food-btn delete-btn btn btn-danger">Delete</button> </th>
-      </tr>
-      </thead>
-      </table>
+              <th> <button type="submit" class="delete-food-btn delete-btn btn btn-danger">Delete</button> </th>
+            </tr>
+          </thead>
     </section>
-      </div>
+    </table>
+  </div>
 
-    </div>
-    </section>
-  <!-- </div> -->
-  <!-- <br> -->
+  </div>
+
+  </div>
+  <br>
 
 {{/each}}
