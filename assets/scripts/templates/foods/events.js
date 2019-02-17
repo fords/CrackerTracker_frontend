@@ -5,6 +5,7 @@ const showFoodsTemplate = require('../food-listing.handlebars')
 // const store = require('../../store.js')
 const onSignUp = function (event) {
   event.preventDefault()
+  $('#up-message').show().text('Signing up ....')
   const data = getFormFields(this)
   api.signUp(data)
     .then(ui.signUpSuccess)
@@ -14,6 +15,7 @@ const onSignUp = function (event) {
 const onSignIn = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
+  $('#up-message').show().text('Signing in ....')
   api.signIn(data)
     .then(ui.signInSuccess)
     .catch(ui.failure)
@@ -21,6 +23,7 @@ const onSignIn = function (event) {
 
 const onSignOut = function (event) {
   event.preventDefault()
+  $('#out-message').show().text('Signing out ....')
   api.signOut()
     .then(ui.signOutSuccess)
     .catch(ui.failure)
