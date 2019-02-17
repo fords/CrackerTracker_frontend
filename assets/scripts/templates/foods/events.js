@@ -31,7 +31,7 @@ const onChangePassword = function (event) {
   const data = getFormFields(this)
   api.changePassword(data)
     .then(ui.changePasswordSuccess)
-    .catch(ui.passwordFailure)
+    .catch(ui.failure)
 }
 
 const createFood = function (event) {

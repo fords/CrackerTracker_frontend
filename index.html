@@ -1,186 +1,193 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title> Cracker Tracker </title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags-->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<head>
+  <title> Cracker Tracker </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `script` tags-->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <div class="nav-bar">
-          <button class="nav-button" id="nav-new-food" data-toggle="modal" data-target="#newFoodModal">Create Food</button>
-            <!-- <button class="nav-button" id="nav-examples">examples</button> -->
-            <form id ='getall-food'>
-              <input type="submit" value="View">
-            </form>
-          <button class="nav-button" id="nav-change-password" data-toggle="modal" data-target="#changePasswordModal">Change Password</button>
-          <form id="sign-out">
-                <input type="submit" class='button' value="Sign Out">
-          </form>
-    </div>
-    <div id='feedbackOnAction'> <br> </div>
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
-    <body>
-      <h1> Cracker Tracker </h1>
-      <div class='signInUp'>
-      <div id="signUp">
-        <form id="sign-up">
-          <fieldset>
-            <h2>Sign Up Here</h2>
-            <input type="email" name="credentials[email]" placeholder="Email"><br>
-            <input type="password" name="credentials[password]" placeholder="Password"><br>
-            <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password"><br>
-            <input type="submit" value="Sign Up">
-          </fieldset>
-        </form>
-      </div>
-
-      <div id="signIn">
-          <form id="sign-in">
-              <fieldset>
-                <h2>Sign In Here</h2>
-                <input type="text" name="credentials[email]" placeholder="Email"><br>
-                <input type="password" name="credentials[password]" placeholder="Password"><br>
-                <input type="submit" value="Sign In">
-              </fieldset>
-          </form>
-        </div>
-      </div>
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
 
 
 
-      <!-- <div class="nav-bar">
-        <button class="nav-button" id="">view food</button>
-        <button class="nav-button" id="nav-new-food" data-toggle="modal" data-target="#newFoodModal">Create Food</button>
-      </div> -->
 
-      <div class="food-data" style="margin-left: 30px;">
-          <table>
-            <thead>
+<body>
+  <h1> Cracker Tracker </h1>
 
-              <tr>
-                <div>
-                <th class="food-update">Calendar</th>
-                <th class="food-breakfast">Breakfast</th>
-                <th class="food-Lunch">Lunch</th>
-                <th class="food-dinner">Dinner</th>
-                <th class="food-modify">Update</th>
-                <th class="food-modify">Delete</th>
+  <div id='feedbackOnAction'> <br> </div>
+
+  <div class="nav-bar">
+    <button class="nav-button" id="nav-new-food" data-toggle="modal" data-target="#newFoodModal">Create Food</button>
+    <!-- <button class="nav-button" id="nav-examples">examples</button> -->
+    <form id='getall-food'>
+      <input type="submit" value="View">
+    </form>
+    <button class="nav-button" id="nav-change-password" data-toggle="modal" data-target="#changePasswordModal">Change Password</button>
+  </div>
+
+  <div class="btn-group" role="group" aria-label="auth-group">
+
+    <button type="button" id="sign-up-button" class="btn btn-primary" data-toggle="modal" data-target="#authorizationModal">Sign Up/In</button>
+
+    <div class="modal fade" id="authorizationModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header text-center">
+            <h5 class="modal-title" id="authorizationModalLabel">Sign Up</h5>
+            <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+          </div>
+          <div class="modal-body">
+
+            <p id="up-message"></p>
+
+            <form id="sign-up">
+              <div class="form-group">
+                <input class="form-control" type="email" name="credentials[email]" placeholder="Email">
               </div>
-              </tr>
-
-            </thead>
-            <tbody >
-              <tr>
-
-              </tr>
-            </tbody>
-          </table>
-
-
-      </div>
-
-      <div id="food-handlebars" class="food-handlebars"> </div>
-      <!-- <div class="createFood">
-        <form id="create-food">
-          <fieldset>
-            <h2>Creates Food</h2>
-            <input type="text" name="name" placeholder="Description Name(Optional)"><br>
-            <input type="text" name="breakfast" placeholder="Breakfast"><br>
-            <input type="text" name="lunch" placeholder="lunch"><br>
-            <input type="text" name="dinner" placeholder="Dinner"><br>
-            <input type="text" name="calendar" placeholder="Calendar"><br>
-            <input type="submit" value="Create Food">
-          </fieldset>
-        </form>
-      </div> -->
-
-
-      <div class="modal fade" id="newFoodModal"  role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog modal-md" role="document">
-          <div class="modal-content">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>
-            <h4 class="modal-title" id="modalTitleNewFood"> Create Food </h4>
-            <form id="create-food" class="new-food-panel">
-              <fieldset>
-                <input type="text" class="modal-field" name="name" placeholder="Calendar[mm/dd/yyyy]">
-                <input type="text" class="modal-field" name="breakfast" placeholder="breakfast">
-                <input type="text" class="modal-field" name="lunch" placeholder="lunch">
-                <input type="text" class="modal-field" name="dinner" placeholder="dinner">
-                <!-- <input type="text" class="modal-field" name="calendar" placeholder="calendar"> -->
-                <input type="submit" class="new-food-form-button" value="submit">
-              </fieldset>
+              <div class="form-group">
+                <input class="form-control" type="password" name="credentials[password]" placeholder="Password">
+              </div>
+              <div class="form-group">
+                <input class="form-control" type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+              </div>
+              <button type="submit" class="btn btn-primary">Sign Up!</button>
             </form>
+            <hr>
+            <hr>
+
+            <h5 class="modal-title" id="authorizationModalLabel">Sign In</h5>
+            <hr><br>
+            <form id="sign-in">
+
+              <div class="form-group">
+                <input class="form-control" type="email" name="credentials[email]" placeholder="Email">
+              </div>
+              <div class="form-group">
+                <input class="form-control" type="password" name="credentials[password]" placeholder="Password">
+              </div>
+              <button type="submit" class="btn btn-primary">Sign In</button>
+            </form>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="close-modal btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
+    </div>
 
-      <!-- <div class="updateFood">
-        <form id="update-food">
-          <fieldset>
-            <h2>Update Food</h2>
-            <input required type="number" name="food[id]" id="food-id-update" placeholder="Food ID Here">
-            <input type="text" name="name" placeholder="Calendar"><br>
-            <input type="text" name="breakfast" placeholder="Breakfast"><br>
-            <input type="text" name="lunch" placeholder="Lunch"><br>
-            <input type="text" name="dinner" placeholder="Dinner"><br>
-            <input type="submit" value="Update Food">
-          </fieldset>
-        </form>
-      </div> -->
+    <button type="button" id="options-button" class="btn btn-primary" data-toggle="modal" data-target="#optionsModal">Options</button>
 
-      <!--  -->
-      <!-- <div class="getonefood">
-        <h2 > Get One Food </h2>
-            <form id ='getone-food'>
-              <input required type='text' name='food[id]' />
-              <button type='submit' class='btn btn-default'> Get One Food</button>
+    <div class="modal fade" id="optionsModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="optionsModalLabel">Options</h5>
+            <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+          </div>
+          <div class="modal-body">
+
+            <p id="out-message"></p>
+
+            <form id="change-password" class="form-inline">
+              <div class="form-group">
+                <input class="form-control" type="password" name="passwords[old]" placeholder="OldPassword">
+              </div>
+              <div class="form-group">
+                <input class="form-control" type="password" name="passwords[new]" placeholder="New Password">
+              </div>
+              <button type="submit" class="btn btn-primary">Change password</button>
             </form>
-      </div> -->
-      <div id='feedbackOnOneRow'> <br> </div>
+            <br>
 
-      <!-- <div class="getAllFood">
-      <h2> Get All Food </h2>
-            <form id ='getall-food'>
-              <input type="submit" value="View">
+            <form id="sign-out">
+              <button type="submit" class="btn btn-danger">Sign Out</button>
             </form>
-      </div> -->
 
-      <!-- <div class="deleteonefood">
-      <h2 > Delete One Food </h2>
-                  <form id ='deleteone-food'>
-                    <input type='text' name='food[id]' />
-                    <button type='submit' class='btn btn-default'> Delete One Food</button>
-                  </form>
-      </div> -->
 
-      <!-- <form id="change-password">
-              <br>
-              <h3>Change Password</h3>
-              <input type="password" name="passwords[old]" placeholder="Old Password"><br>
-              <input type="password" name="passwords[new]" placeholder="New Password"><br>
-              <input type="submit" value="Change Password">
-      </form> -->
-
-      <div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog modal-md" role="document">
-          <div class="modal-content">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="modalTitleChangePassword">Change Password</h4>
-            <form id="change-password" class="change-password-panel">
-              <fieldset>
-                <input type="password" name="passwords[old]" placeholder="Old Password" autocomplete="off">
-                <input type="password" name="passwords[new]" placeholder="New Password" autocomplete="off">
-                <input type="submit" class="form-button" value="submit">
-              </fieldset>
-            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="close-modal btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
+    </div>
 
-    </body>
+  </div>
+
+
+  <div class="food-data" style="margin-left: 30px;">
+    <table>
+      <thead>
+
+        <tr>
+          <div>
+            <th class="food-update">Calendar</th>
+            <th class="food-breakfast">Breakfast</th>
+            <th class="food-Lunch">Lunch</th>
+            <th class="food-dinner">Dinner</th>
+            <th class="food-modify">Update</th>
+            <th class="food-modify">Delete</th>
+          </div>
+        </tr>
+
+      </thead>
+      <tbody>
+        <tr>
+
+        </tr>
+      </tbody>
+    </table>
+
+
+  </div>
+
+  <div id="food-handlebars" class="food-handlebars"> </div>
+
+
+  <div class="modal fade" id="newFoodModal" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-md" role="document">
+      <div class="modal-content">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>
+        <h4 class="modal-title" id="modalTitleNewFood"> Create Food </h4>
+        <form id="create-food" class="new-food-panel">
+          <fieldset>
+            <input type="text" class="modal-field" name="name" placeholder="Calendar[mm/dd/yyyy]">
+            <input type="text" class="modal-field" name="breakfast" placeholder="breakfast">
+            <input type="text" class="modal-field" name="lunch" placeholder="lunch">
+            <input type="text" class="modal-field" name="dinner" placeholder="dinner">
+            <!-- <input type="text" class="modal-field" name="calendar" placeholder="calendar"> -->
+            <input type="submit" class="new-food-form-button" value="submit">
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div id='feedbackOnOneRow'> <br> </div>
+
+
+  <div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-md" role="document">
+      <div class="modal-content">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="modalTitleChangePassword">Change Password</h4>
+        <form id="change-password" class="change-password-panel">
+          <fieldset>
+            <input type="password" name="passwords[old]" placeholder="Old Password" autocomplete="off">
+            <input type="password" name="passwords[new]" placeholder="New Password" autocomplete="off">
+            <input type="submit" class="form-button" value="submit">
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</body>
+
 </html>

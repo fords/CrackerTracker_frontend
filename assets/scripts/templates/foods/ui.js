@@ -1,11 +1,13 @@
 const store = require('../../store')
 const showFoodsTemplate = require('../food-listing.handlebars')
 const signUpSuccess = function (data) {
-  $('#feedbackOnAction').html(' ')
-  $('#feedbackOnAction').text('Signed up successfully!!')
-  $('#sign-up')[0].reset()
+  $('#up-message').show().text('Sign Up Success')
+  $('#up-message').removeClass()
+  $('#up-message').addClass('success')
+  $('#up-message').fadeOut(5000)
   // console.log(' sign up success')
 }
+
 
 const signInSuccess = function (data) {
   store.user = data.user
@@ -41,13 +43,24 @@ const signOutSuccess = function () {
 
 const changePasswordSuccess = function (data) {
   $('#feedbackOnAction').html(' ')
-  $('#feedbackOnAction').text('Password changed successfully!!')
+  $('#feedbackOnAction').show().text('Password changed successfully!!')
+  $('#feedbackOnAction').fadeOut(5000)
+  $('#out-message').show().text('Your Password Has Been Changed!')
+  $('#out-message').removeClass()
+  $('#out-message').addClass('success')
+  $('#out-message').fadeOut(5000)
   $('#change-password')[0].reset()
 }
 
 const failure = function () {
-  $('#feedbackOnAction').html(' ')
-  $('#feedbackOnAction').text('Error!!!')
+  $('#up-message').show().text('Error !!!')
+  $('#up-message').removeClass()
+  $('#up-message').addClass('failure')
+  $('#up-message').fadeOut(9000)
+  $('#out-message').show().text('Error on password change')
+  $('#out-message').removeClass()
+  $('#out-message').addClass('failure')
+  $('#out-message').fadeOut(4000)
 }
 
 const createFoodSuccess = function (data) {
