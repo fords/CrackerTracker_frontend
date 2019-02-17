@@ -2,15 +2,16 @@
 
   {{log food}}
   <div class="show-food">
-    <h5 data-id="{{food.id}}" class="header">{{food.breakfast}} <span class="food-message"></span></h5>
+
     <section data-id="{{food.id}}">
 
       <div class="food-data">
-        <p id='feedbackMessage'></p>
-        <p >{{food.name}}</p>
-        <p >{{food.breakfast}}</p>
-        <p >{{food.lunch}}</p>
-        <p >{{food.dinner}}</p>
+      <tr>
+        <th id='feedbackMessage'></th>
+        <th>{{food.name}}</th>
+        <td>{{food.breakfast}}</th>
+        <th>{{food.lunch}}</th>
+        <th >{{food.dinner}}</th>
       <!-- </div> -->
 
       <!-- <div id="model-actions"> -->
@@ -56,6 +57,7 @@
 
 
         <button type="submit" class="delete-food-btn delete-btn btn btn-danger">Delete</button>
+      </tr>
       </div>
 
     </div>

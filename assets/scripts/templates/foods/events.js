@@ -72,7 +72,7 @@ const deleteOneFood = function (event) {
   event.preventDefault()
   // const data = getFormFields(this)
   const foodId = $(event.target).closest('section').data('id')
-  debugger
+  // debugger
   api.deleteOneFood(foodId)
     .then(ui.deleteOneFoodSuccess)
     .catch(ui.failure)
