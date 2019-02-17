@@ -60,7 +60,9 @@ const createFoodSuccess = function (data) {
 const updateFoodSuccess = function (data) {
   $('#feedbackOnAction').html(' ')
   $('#feedbackOnAction').text('updated food  successfully!!')
-  $('.update-food-form')[0].reset()
+  const showTabsHtml = showFoodsTemplate({ foods: data.foods })
+  $('#food-handlebars').html(showTabsHtml)
+  // $('.update-food-form')[0].reset()
 }
 
 const getOneFoodSuccess = function (data) {
@@ -74,7 +76,7 @@ const getOneFoodSuccess = function (data) {
       `)
       //<p> Calendar: ${data.food.calendar} </p>
   $('#feedbackOnOneRow').append(foodHTML)
-  $('#getone-food')[0].reset()
+  // $('#getone-food')[0].reset()
 }
 
 const getOneFoodFailure = function () {
@@ -97,7 +99,8 @@ const getAllFoodSuccess = function (data) {
 const deleteOneFoodSuccess = function (data) {
   $('#feedbackOnAction').html(' ')
   $('#feedbackOnAction').text('deleted one food  successfully!!')
-  $('#deleteone-food')[0].reset()
+
+  // $('#deleteone-food')[0].reset()
 }
 
 module.exports = {

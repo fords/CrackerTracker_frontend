@@ -1,6 +1,7 @@
 const getFormFields = require('../../../../lib/get-form-fields')
 const api = require('./api.js')
 const ui = require('./ui.js')
+const showFoodsTemplate = require('../food-listing.handlebars')
 // const store = require('../../store.js')
 const onSignUp = function (event) {
   event.preventDefault()
@@ -60,21 +61,24 @@ const getOneFood = function (event) {
     .then(ui.getOneFoodSuccess)
     .catch(ui.getOneFoodFailure)
 }
-const getAllFood = function (event) {
+const getAllFood = event => {
   event.preventDefault()
-  const data = getFormFields(this)
+  const data = getFormFields(event.target)
   api.getAllFood(data)
     .then(ui.getAllFoodSuccess)
     .catch(ui.failure)
 }
 
-const deleteOneFood = function (event) {
+const deleteOneFood = event => {
   event.preventDefault()
-  // const data = getFormFields(this)
+  const data = getFormFields(event.target)
   const foodId = $(event.target).closest('section').data('id')
   // debugger
   api.deleteOneFood(foodId)
     .then(ui.deleteOneFoodSuccess)
+    // .then(() => $('#food-handlebars').html(showFoodsTemplate({ foods: data.foods })))
+    // .then(api.getAllFood(data)
+    //   .then(ui.getAllFoodSuccess))
     .catch(ui.failure)
 }
 

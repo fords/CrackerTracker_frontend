@@ -11,6 +11,19 @@
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
+    <div class="nav-bar">
+          <button class="nav-button" id="nav-new-food" data-toggle="modal" data-target="#newFoodModal">Create Food</button>
+            <!-- <button class="nav-button" id="nav-examples">examples</button> -->
+            <form id ='getall-food'>
+              <input type="submit" value="View">
+            </form>
+          <button class="nav-button" id="nav-change-password" data-toggle="modal" data-target="#changePasswordModal">Change Password</button>
+          <form id="sign-out">
+                <input type="submit" class='button' value="Sign Out">
+          </form>
+    </div>
+    <div id='feedbackOnAction'> <br> </div>
+
     <body>
       <h1> Cracker Tracker </h1>
       <div class='signInUp'>
@@ -38,14 +51,12 @@
         </div>
       </div>
 
-      <form id="sign-out">
-            <input type="submit" class='button' value="Sign Out">
-      </form>
 
-      <div class="nav-bar">
-        <!-- <button class="nav-button" id="">view food</button> -->
+
+      <!-- <div class="nav-bar">
+        <button class="nav-button" id="">view food</button>
         <button class="nav-button" id="nav-new-food" data-toggle="modal" data-target="#newFoodModal">Create Food</button>
-      </div>
+      </div> -->
 
       <div class="food-data" style="margin-left: 30px;">
           <table>
@@ -132,12 +143,12 @@
       </div> -->
       <div id='feedbackOnOneRow'> <br> </div>
 
-      <div class="getAllFood">
+      <!-- <div class="getAllFood">
       <h2> Get All Food </h2>
             <form id ='getall-food'>
               <input type="submit" value="View">
             </form>
-      </div>
+      </div> -->
 
       <!-- <div class="deleteonefood">
       <h2 > Delete One Food </h2>
@@ -147,15 +158,29 @@
                   </form>
       </div> -->
 
-      <form id="change-password">
+      <!-- <form id="change-password">
               <br>
               <h3>Change Password</h3>
               <input type="password" name="passwords[old]" placeholder="Old Password"><br>
               <input type="password" name="passwords[new]" placeholder="New Password"><br>
               <input type="submit" value="Change Password">
-      </form>
+      </form> -->
 
-      <div id='feedbackOnAction'> <br> </div>
+      <div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-md" role="document">
+          <div class="modal-content">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="modalTitleChangePassword">Change Password</h4>
+            <form id="change-password" class="change-password-panel">
+              <fieldset>
+                <input type="password" name="passwords[old]" placeholder="Old Password" autocomplete="off">
+                <input type="password" name="passwords[new]" placeholder="New Password" autocomplete="off">
+                <input type="submit" class="form-button" value="submit">
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </div>
 
     </body>
 </html>
