@@ -78,9 +78,10 @@ const failure = function () {
 
 const createFoodSuccess = function (data) {
   $('#feedbackOnAction').html(' ')
-  $('#feedbackOnAction').show().text('create food  successfully!!')
+  $('#feedbackOnAction').show().text('Please click VIEW button to refresh information!!!!')
   $('#create-food')[0].reset()
   $('#feedbackOnAction').fadeOut(5000)
+  // $('#feedbackOnAction').css('display', 'block')
   // console.log(' sign up success')
 }
 
@@ -90,6 +91,10 @@ const updateFoodSuccess = function (data) {
   // const showTabsHtml = showFoodsTemplate({ foods: data.foods })
   // $('#food-handlebars').html(showTabsHtml)
   $('#feedbackOnAction').fadeOut(5000)
+  $('.update-message').html(' ')
+  $('.update-message').show().text('Please click VIEW button to refresh information!!')
+  $('.update-message').fadeOut(5000)
+
   // $('.update-food-form')[0].reset()
 }
 
@@ -129,7 +134,7 @@ const getAllFoodSuccess = function (data) {
 }
 const deleteOneFoodSuccess = function (data) {
   $('#feedbackOnAction').html(' ')
-  $('#feedbackOnAction').show().text('deleted one food  successfully!!')
+  $('#feedbackOnAction').show().text('Please click VIEW button to refresh the updated info!!')
   $('#feedbackOnAction').fadeOut(5000)
   // $('#deleteone-food')[0].reset()
 }
