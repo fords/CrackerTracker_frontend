@@ -9,14 +9,40 @@
 
 
       <div class="food-handlebars-data">
-      <tr>
-        <th id='feedbackMessage'></th>
-        <th class="food-update">{{food.name}}</th>
-        <th class="food-breakfast">{{food.breakfast}}</th>
-        <th class="food-Lunch">{{food.lunch}}</th>
-        <th class="food-dinner">{{food.dinner}}</th>
-        <th class="food-modify">Update/Delete</th>
-
+        <tr  data-id="{{food.id}}"
+    data-name="{{food.name}}"
+    data-breakfast="{{food.breakfast}}"
+    data-lunch="{{food.lunch}}"
+    data-dinner="{{food.dinner}}"
+    data-toggle="modal" data-target="#modifyfoodModal">
+    <td id="name-td" class="name-td">
+      {{#if food.name}}
+        {{food.name}}
+      {{else}}
+        —
+      {{/if}}
+    </td>
+    <td class="breakfast-td">
+      {{#if food.breakfast}}
+        {{food.breakfast}}
+      {{else}}
+        —
+      {{/if}}
+    </td>
+    <td class="lunch-td">
+      {{#if food.lunch}}
+        {{food.lunch}}
+      {{else}}
+        —
+      {{/if}}
+    </td>
+    <td class="dinner-td">
+      {{#if food.dinner}}
+        {{food.dinner}}
+      {{else}}
+        —
+      {{/if}}
+    </td>
       <!-- </div> -->
 
       <!-- <div id="model-actions"> -->
@@ -62,11 +88,12 @@
 
 
         <button type="submit" class="delete-food-btn delete-btn btn btn-danger">Delete</button>
-      </tr>
+
       </div>
 
     </div>
     </section>
+    </tr>
   </div>
   <br>
 
